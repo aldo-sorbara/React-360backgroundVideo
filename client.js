@@ -10,19 +10,18 @@ function init(bundle, parent, options = {}) {
     ...options,
   });
 
+  const player = r360.compositor.createVideoPlayer('myplayer');
+  player.setSource("./static_assets/test.mp4", '3DTB', 'mp4');
+
   // Render your app content to the default cylinder surface
   r360.renderToSurface(
-    r360.createRoot('edition_13th', { /* initial props */ }),
+    r360.createRoot('edition_13th', {}),
     r360.getDefaultSurface()
   );
-
-    const player = r360.compositor.createVideoPlayer('myplayer');
-    player.setSource('./static_assets/Test.mp4', '3DTB');
-    r360.compositor.setBackgroundVideo('myplayer');
-
-  // Load the initial environment
-  // r360.compositor.setBackground(r360.getAssetURL('360_world.jpg'));
+  
 }
 
 window.React360 = {init};
+
+
 
